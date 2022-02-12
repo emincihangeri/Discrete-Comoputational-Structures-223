@@ -1,0 +1,140 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{fancybox}
+\usepackage{verbatim}
+\usepackage{array}
+\usepackage{latexsym}
+\usepackage{alltt}
+\usepackage{hyperref}
+\usepackage{textcomp}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage{fitch}  % to use fitch
+\usepackage{float}
+\usepackage[hmargin=3cm,vmargin=5.0cm]{geometry}
+%\topmargin=0cm
+\topmargin=-2cm
+\addtolength{\textheight}{6.5cm}
+\addtolength{\textwidth}{2.0cm}
+%\setlength{\leftmargin}{-5cm}
+\setlength{\oddsidemargin}{0.0cm}
+\setlength{\evensidemargin}{0.0cm}
+%misc libraries goes here
+
+
+\begin{document}
+\section*{Student Information } 
+%Write your full name and id number between the colon and newline
+%Put one empty space character after colon and before newline
+Full Name : Muhammet Emin Cihangeri \\
+Id Number : 2448215 \\
+
+
+% ND example using fitch
+% delete or comment if you intend to use this to generate the vector pdf 
+
+% Write your answers below the section tags
+\section*{Answer 1}
+
+	\begin{equation} 
+	\begin{split}
+		G(x) &= \sum_{n=0}^{\infty} a_{n} \cdot x^{n}  \\
+		G(x) - 1 &= \sum_{n=1}^{\infty} a_{n} \cdot x^{n}  \\
+		&= \sum_{n=1}^{\infty} (a_{n-1} + 2^{n}) \cdot x^{n}  \\
+		&= x \cdot \sum_{n=1}^{\infty} a_{n-1} \cdot x^{n-1} + 2x \cdot \sum_{n=1}^{\infty} 2^{n-1} \cdot x^{n-1}  \\
+		&= x \cdot \sum_{n=0}^{\infty} a_{n} \cdot x^{n} + 2x \cdot \sum_{n=0}^{\infty} 2^{n} \cdot x^{n} \\
+		G(x) - 1 &= x \cdot G(x) + \frac{2x}{1-2x} \\
+		G(x) &= \frac{2}{1-2x} - \frac{1}{1-x} \\
+		&= \sum_{n=0}^{\infty} 2^{n+1} \cdot x^{n} - \sum_{n=0}^{\infty} x^{n} \\
+		&= \sum_{n=0}^{\infty} (2^{n+1} - 1) \cdot x^{n} \\
+		\\
+		a_n &= 2^{n+1} - 1 \\
+	\end{split}
+	\end{equation}
+
+\section*{Answer 2}
+
+\subsection*{a)}
+	\setlength{\unitlength}{0.8cm}
+	\begin{picture}(16,8)
+	\thicklines
+	\put(8,3){\circle*{0.1}}
+	\put(7.6,3){$3$}
+	\put(8,1){\circle*{0.1}}
+	\put(7.6,1){$1$}
+	\put(10,7){\circle*{0.1}}
+	\put(10.3,7){$18$}
+	\put(10,3){\circle*{0.1}}
+	\put(10.3,3){$2$}
+	\put(8,5){\circle*{0.1}}
+	\put(7.6,5){$9$}
+	\put(8,3){\line(0,-1){2}}
+	\put(10,3){\line(0,1){4}}
+	\put(8,3){\line(0,1){2}}
+	\put(8,5){\line(1,1){2}}
+	\put(8,1){\line(1,1){2}}
+	\end{picture}
+
+\subsection*{b)}
+
+	$ \begin{bmatrix}
+	1 & 1 & 1 & 1 & 1 \\
+	0 & 1 & 0 & 0 & 1 \\
+	0 & 0 & 1 & 1 & 1 \\
+	0 & 0 & 0 & 1 & 1 \\
+	0 & 0 & 0 & 0 & 1 \\
+	\end{bmatrix} $
+
+\subsection*{c)}
+
+	Yes. Because every pair in the Hasse diagram has an upperbound and a lowerbound.
+
+\subsection*{d)}
+	
+	The symmetric closure of $R$ is $ R \cup R^{-1} $. This means $ aRb \rightarrow bRa $ \\
+	$ \begin{bmatrix}
+	1 & 1 & 1 & 1 & 1 \\
+	1 & 1 & 0 & 0 & 1 \\
+	1 & 0 & 1 & 1 & 1 \\
+	1 & 0 & 1 & 1 & 1 \\
+	1 & 1 & 1 & 1 & 1 \\
+	\end{bmatrix} $
+
+\subsection*{e)}
+	
+	2 and 9 are not comparable since $ 2 \mid 9 $ is wrong. \\
+	3 and 18 are comparable since $ 3 \mid 18 $. \\
+ 
+\section*{Answer 3}
+
+\subsection*{a)}
+	By the matrix representation \\
+	\\
+	$ \begin{bmatrix}
+	1 & 0 & 1 & . & 1 \\
+	1 & 1 & 1 & . & 0 \\
+	0 & 0 & 1 & . & 1 \\
+	. & . & . & . & 1 \\
+	0 & 1 & 0 & 0 & 1 \\
+	\end{bmatrix} $
+	\\
+	All the diagonals and the upper right elements can either be 1 or 0. Then, the lower left elements will be the opposite of the mirror element of them. Meaning: \\
+	$ \forall i, j (a_{ij} = 1 \rightarrow a_{ji} = 0) \wedge (a_{ij} = 0 \rightarrow a_{ji} = 1) $ \\
+	Therefore there are $ 2^{\frac{n^2 + n}{2}} $ anti-symmetric binary relations. \\
+
+\subsection*{b)}
+	Here, the only difference from 3a is that all the diagonal elements should be 1. Therefore, there are $ 2^{\frac{n^2 - n}{2}} $ reflexive and anti-symmetric binary relations. \\
+
+\end{document}
+
+
+
+
+
+
+
+
+

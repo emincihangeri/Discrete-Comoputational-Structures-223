@@ -1,0 +1,144 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage{fancybox}
+\usepackage{verbatim}
+\usepackage{array}
+\usepackage{latexsym}
+\usepackage{alltt}
+\usepackage{hyperref}
+\usepackage{textcomp}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage{fitch}  % to use fitch
+\usepackage{float}
+\usepackage[hmargin=3cm,vmargin=5.0cm]{geometry}
+%\topmargin=0cm
+\topmargin=-2cm
+\addtolength{\textheight}{6.5cm}
+\addtolength{\textwidth}{2.0cm}
+%\setlength{\leftmargin}{-5cm}
+\setlength{\oddsidemargin}{0.0cm}
+\setlength{\evensidemargin}{0.0cm}
+
+
+\begin{document}
+\section*{Student Information } 
+%Write your full name and id number between the colon and newline
+%Put one empty space character after colon and before newline
+Full Name : Muhammet Emin Cihangeri \\
+Id Number : 2448215 \\
+
+
+% ND example using fitch
+% delete or comment if you intend to use this to generate the vector pdf 
+
+% Write your answers below the section tags
+\section*{Q. 1}
+
+\begin{itemize}
+            \item Assume that there is a positive integer less then 1. ($ k < 1$)
+	   \item Using the theorem given as $ k \in \mathbb{Z}^{+}  \wedge n \in \mathbb{Z}^{+} \rightarrow k^{n}  \in  \mathbb{Z}^{+} $.
+	   \item $ k \in \mathbb{Z}^{+}  \wedge 3 \in \mathbb{Z}^{+} \rightarrow k^{3}  \in  \mathbb{Z}^{+} $
+	   \item Since $k$ is the least one in the set and $ k^{3} < k $ this makes a contradiction.
+	   \item 1 is the least element.
+        \end{itemize}{}
+
+\section*{Q.2}
+	$ S_{(1,1)} \Rightarrow f_{(1,1)} = 1 $ is the base case. \\
+	$ S_{(m,1)}  \Rightarrow x_1 + x_2 \cdots x_m = 1 $   assume  $ f_{(m,1)} = m $ \\
+	$ S_{(m+1,1)} \Rightarrow x_1 + x_2 \cdots x_m + x_{m+1} = 1 $ \\
+	for  $ x_{m+1} = 0 $ there are m, for $ x_{m+1} = 1 $ there is 1 (rest is all zeros) solutions, $m + 1$ in total.\\
+	So, $ f_{(m,1)} = m $  is approved. \\
+	\\
+	$ S_{(1,n)} \Rightarrow x_1 = n $ assume $ f_{(1,n)}  = 1 $ \\
+	$ S_{(1,n+1)} \Rightarrow x_1 = n + 1  $ \\
+	Only one solution which is $ x_1 = n + 1 $ \\
+	So, $ f_{(1,n)}  = 1 $ is approved. \\
+	\\
+	In the last step we can say, if our assumption formula is correct for $ S_{(m+1,n)} $ and $ S_{(m,n+1)} $ \\
+	and show that $S_{(m+1,n+1)}$ also complies, we can deduce that $S_{(m,n)}$ is correct. \\
+	In the case of $ S_{(m+1,n+1)} $, $x_{m+1}$ will be added as a term to $ S_{(m,n+1)} $. For $x_{m+1} = 0$ \\
+	the rest will be of number $ f_{(m,n+1)} $. For $x_{m+1} = 1$ the rest will be of number $ f_{(m,n)} $. \\
+	It goes on like this and : \\
+	$ f_{(m+1,n+1)} = f_{(m,n+1)} + \cdots f_{(m,1)}$ \\
+	Then substituting the ones after the first element, it can be written as: \\
+	$ f_ {(m+1,n+1)} = f_{(m,n+1)} + f_{(m+1,n)} $ \\
+	\\
+	$ f_ {(m+1,n+1)} = \frac{(n+m)!}{(n+1)! \cdot (m-1)!} + \frac{(n+m)!}{n! \cdot m!} $ \\
+	\\
+	$ f_ {(m+1,n+1)} = \frac{(n+m)!}{n! \cdot (m-1)!} \cdot ( \frac{1}{m} + \frac{1}{n+1})$ \\
+	\\
+	$ f_ {(m+1,n+1)} = \frac{(n+m+1)!}{(n+1)! \cdot (m)!} $ \\
+	\\
+	As a conclusion, induction worked and the formula is proven. \\
+
+\pagebreak 
+
+\section*{Q.3}
+\subsection*{a.)}
+
+	$ \bullet $ --\\
+	$ \bullet $   $ \bullet $  \\
+	With this orientation, there are 28 possible points to choose from the table as the top point. \\
+	-- $ \bullet $ \\
+	$ \bullet $  $ \bullet $ \\
+	With this orientation, there are 21 possible points to choose from the table as the top point. \\
+	$ \bullet $  $ \bullet $ \\
+	$ \bullet $ -- \\
+	With this orientation, there are 21 possible points to choose from the table as the bottom point. \\
+	$ \bullet $  $ \bullet $ \\
+	-- $ \bullet $ \\
+	With this orientation, there are 21 possible points to choose from the table as the bottom point. \\
+	In total there are 91 different choice. \\
+
+
+\subsection*{b.)}
+
+	There are two possible distributions of 6 elements among four elements. \\
+	3 1 1 1   and   2 2 1 1. \\
+	For 3 1 1 1 there are 4 orderings and $ C(6, 3) \cdot C(3, 1) \cdot C(2, 1) \cdot C(1, 1) $ combinations. \\
+	For 2 2 1 1 there are 6 orderings and $ C(6, 2) \cdot C(4, 2) \cdot C(2, 1) \cdot C(1, 1) $ combinations. \\
+	Sum them $ \rightarrow 4 \cdot C(6, 3) \cdot C(3, 1) \cdot C(2, 1) \cdot C(1, 1) + 6 \cdot C(6, 2) \cdot C(4, 2) \cdot C(2, 1) \cdot C(1, 1)$ \\
+	1560 in total.  \\
+ 
+\pagebreak
+
+\section*{Q.4}
+
+\subsection*{a.)}
+
+	Take a string of length n. Its first element can be of three types. The following string can be of two types. \\
+	First, string of length $ n - 1 $ that starts with a different digit than the first one picked and satisfies the \\
+	condition (containing two consecutive same digits). It will be of amount $\frac{2}{3} a_{n-1} $. \\
+	Second, a string of length $ n - 1 $ that starts with the same digit as the first one picked and continues with \\
+	all kinds of digits. There will be $ 3^{n-2} $ such string. \\
+			$ a_n  = 3 . ( \frac{2}{3} a_{n-1} + 3^{n-2}) $ \\
+			$ a_n  = 2 a_{n-1} + 3^{n-1} $ \\
+\subsection*{b.)}
+
+	$ a_1 = 0 , a_2 = 3 $ \\
+
+\subsection*{c.)}
+
+	$ r - 2 = 0 $ (characteristic equation) \\
+	$ r = 2  \Rightarrow  a_h = c_1 2^n$ \\
+	$ a_p = c_2 3^n $ (insert $a_p$ to find $c_2$) \\
+	$ c_2 3^n = 2 \cdot 3^{n-1} + 3^{n-1} $ \\
+	$ c_2 = 1 $ \\
+	$ a_p = 3^n $ \\
+	Solving for the initial conditions: \\
+	$ a_n = c_1 2^n + 3^n $ \\
+	$ a_1 = 2 c_1 + 3 = 0$ \\
+	$ c_1 = \frac{-3}{2} $ \\
+	$ a_n = -3 \cdot 2^{n-1} + 3^{n} $ \\
+
+
+
+% add / remove sections etc as needed 
+% use your own format
+
+\end{document}
+
